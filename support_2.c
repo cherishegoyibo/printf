@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
-* is_digit – finds digit
+* is_digit – checks digit to print
 * @c: input
+*
 * Return: 1 , else 0
 */
 int is_digit(char c)
