@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* is_digit – finds digit
+*is_digit - Function that helps find a digit
 * @c: input
 * Return: 1 , else 0
 */
@@ -14,7 +14,7 @@ int is_digit(char c)
 }
 
 /**
-* is_print – finds char
+*is_print - Function that checks if a character is printable.
 * @c: input
 * Return: 1 , else 0
 */
@@ -27,7 +27,7 @@ int is_print(char c)
 }
 
 /**
-* append_hex - Append ascci to buffer
+* append_hex - Function that appends ASSCI to buffer
 * @buffer: Array
 * @index: input
 * @code: ASSCI CODE.

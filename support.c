@@ -43,26 +43,31 @@ int pr_num(va_list arg)
 */
 char *rev_str(char *s)
 {
-int len, i;
-char *dest;
-char temp;
+	int len, i;
+	char *dest;
+	char temp;
 
-if (s == NULL || *s == &#39;\0&#39;)
-return (s);
+	if (s == NULL || *s == '\0')
+		return (s);
 
-for (len = 0; s[len] != &#39;\0&#39;; len++);
+	for (len = 0; s[len] != '\0'; len++)
+		{}
 
-dest = malloc(sizeof(char) * (len + 1));
-if (dest == NULL)
-return (NULL);
-_memcpy(dest, s, len);
-for (i = 0; i &lt; len; i++, len--)
-{
-temp = dest[len - 1];
-dest[len - 1] = dest[i];
-dest[i] = temp;
-}
-return (dest);
+	dest = malloc(sizeof(char) * (len + 1));
+
+
+	dest = malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
+	_memcpy(dest, s, len);
+	for (i = 0; i < len; i++, len--)
+	{
+
+		temp = dest[len - 1];
+		dest[len - 1] = dest[i];
+		dest[i] = temp;
+	}
+	return (dest);
 }
 
 /**
@@ -75,13 +80,13 @@ return (dest);
 */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-unsigned int i;
+	unsigned int i;
 
-for (i = 0; i &lt; n; i++)
-dest[i] = src[i];
-dest[i] = &#39;\0&#39;;
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
 
-return (dest);
+	return (dest);
 }
 
 /**
@@ -93,12 +98,12 @@ return (dest);
 */
 unsigned int base_len(unsigned int n, int b)
 {
-unsigned int i;
 
-for (i = 0; n &gt; 0; i++)
+	unsigned int i;
 
-n = n / b;
-return (i);
+	for (i = 0; n > 0; i++)
+		n = n / b;
+	return (i);
 }
 
 /**
@@ -108,7 +113,9 @@ return (i);
 */
 void pr_base(char *c)
 {
-int i;
-for (i = 0; c[i] != &#39;\0&#39;; i++)
-_putchar(str[i]);
+	int i;
+
+	for (i = 0; c[i] != '\0';; i++)
+		_putchar(str[i]);
+
 }
