@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* pr_size – print size
+* pr_size - Prints the size.
 * @format: pointer
 * @index: pointer
 *
@@ -25,7 +25,7 @@ int pr_size(const char *format, int *index)
 }
 
 /**
-* pr_width – print width
+* pr_width - Prints the width.
 * @format: pointer
 * @index: pointer
 * @arg: arguments.
@@ -59,7 +59,7 @@ int pr_width(const char *format, int *index, va_list arg)
 }
 
 /**
-* pr_precision – print precision
+* pr_precision - Prints the precision.
 * @format: string
 * @arg: arg
 * @index: index

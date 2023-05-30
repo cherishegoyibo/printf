@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* pr_String – Prints non printable
+* pr_String - Prints non-printable characters
 * @arg: argument
 * @buffer: array
 *

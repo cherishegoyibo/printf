@@ -77,7 +77,7 @@ int pr_octal(va_list arg)
 	_str = rev_str(str);
 	if (_str == NULL)
 		return (-1);
-	
+
 	pr_base(_str);
 	free(str);
 	free(_str);
@@ -173,7 +173,7 @@ int pr_HEX(va_list arg)
 }
 
 /**
- * hex_comp – finds hex function
+ * hex_comp - Finds hex function.
  * @i: input
  * @c: character input
  * Return: 0
@@ -189,4 +189,5 @@ int hex_comp(int i, char c)
 	else
 		return (HEX[i]);
 	return (0);
+
 }
