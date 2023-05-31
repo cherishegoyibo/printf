@@ -33,6 +33,14 @@ int hex_comp(int i, char c);
 int pr_rev(va_list arg);
 int rot13(va_list arg);
 int pr_flag(const char *format, int *index);
+int pr_size(const char *format, int *index);
+int pr_width(const char *format, int *index, va_list arg);
+int pr_precision(const char *format, va_list arg, int *index);
+int pr_String(va_list arg, char buffer[]);
+int pr_pointer(va_list arg, char buffer[], int flags);
+int pull_print(const char *format, int index, va_list arg, char buffer[],
+                int flag, int width, int size, int precision);
+
 
 int pr_num(va_list arg);
 char *rev_str(char *s);
