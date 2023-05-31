@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			pr_buffer(buffer, &b_index);
-			flag = pr_flag(format, &i);
+			flag = pr_flag(format, &index);
 			width = pr_width(format, &index, arg);
 			precision = ;
 			size = pr_size ;
 			++i;
-			print = syn_print(format, buffer, arg, &i or index, flag, width, precision, size);
+			print = pull_print(format, buffer, arg, &index, flag, width, precision, size);
 			if (print == -1)
 				return (-1);
 			pr_char += print;
