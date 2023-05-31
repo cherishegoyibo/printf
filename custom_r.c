@@ -18,10 +18,10 @@ int pr_rev(va_list arg)
 	_str = rev_str(str);
 	if (_str == NULL)
 		return (-1);
-	for (len = 0; _len[len] != '\0'; len++)
-		_putchar(_len[len]);
+	for (len = 0; _str[len] != '\0'; len++)
+		_putchar(_str[len]);
 
-	free(_len);
+	free(_str);
 	return (len);
 }
 

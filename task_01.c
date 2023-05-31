@@ -73,10 +73,10 @@ int pr_uint(va_list arg)
 	i = va_arg(arg, unsigned int);
 
 	if (i == 0)
-		return (pr_num(i));
+		return (pr_unsign_num(i));
 
-	if (i < 0)
+	if (i < 1)
 		return (-1);
 
-	return (pr_num(i));
+	return (pr_unsign_num(i));
 }

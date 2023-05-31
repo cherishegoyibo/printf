@@ -13,7 +13,7 @@ int pr_size(const char *format, int *index)
 
 	if (format[i] == 'l')
 		size = L_LONG;
-	else if (format[curr_i] == 'h')
+	else if (format[i] == 'h')
 	size = H_SHORT;
 
 	if (size == 0)
