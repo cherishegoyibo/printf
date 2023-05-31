@@ -36,10 +36,11 @@ int pr_precision(const char *format, va_list arg, int *index);
 int pr_String(va_list arg, char buffer[]);
 int pr_pointer(va_list arg, char buffer[], int flags);
 int pull_print(const char *format, int index, va_list arg, char buffer[],
-                int flag, int width, int size, int precision);
+		int flag, int width, int size, int precision);
 
 
 int pr_num(va_list arg);
+int pr_unsign_num(unsigned int n);
 char *rev_str(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
 unsigned int base_len(unsigned int n, int b);
@@ -48,6 +49,9 @@ void pr_buffer(char buffer[], int *b_index);
 int is_digit(char c);
 int is_print(char c);
 int append_hex(char code, char buffer[], int index);
+int wr_pointer(char buffer[], int ind, int len, int width,
+		int flag, char padd, char extra, int padd_start);
+
 /**
  * struct format - structure to handle different format
  * @type: format
