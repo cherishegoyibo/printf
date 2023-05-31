@@ -11,7 +11,7 @@ void pr_buffer(char buffer[], int *b_index);
 int _printf(const char *format, ...)
 {
 	int i, print = 0, pr_char = 0;
-	int flag, width, precision, size, b_index = 0;
+	int flag, width, precision, size, b_index = 0, index = 0;
 	va_list arg;
 	char buffer[BUFF_SIZE];
 
@@ -20,12 +20,12 @@ int _printf(const char *format, ...)
 
 	va_start(arg, format);
 
-	for (i = 0; format && format[i] != '\0''; i++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			buffer[b_index++] = format[i];
-			if (b_index == BUFFF_SIZE )
+			if (b_index == BUFF_SIZE)
 				pr_buffer(buffer, &b_index);
 			pr_char++;
 		}
@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 			pr_buffer(buffer, &b_index);
 			flag = pr_flag(format, &index);
 			width = pr_width(format, &index, arg);
-			precision = ;
-			size = pr_size ;
+			precision = pr_precision;
+			size = pr_size;
 			++i;
-			print = pull_print(format, buffer, arg, &index, flag, width, precision, size);
+			print = syn_print(format, buffer, arg, &i, flag, \width, precision, size);
 			if (print == -1)
 				return (-1);
 			pr_char += print;
@@ -63,3 +63,4 @@ void pr_buffer(char buffer[], int *b_index)
 	if (*b_index > 0)
 		write(1, &buffer[0], *b_index);
 }
+
