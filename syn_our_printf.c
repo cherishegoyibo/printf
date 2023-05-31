@@ -27,7 +27,7 @@ int pull_print(const char *format, int index, va_list arg, char buffer[],
 	};
 	for (i = 0; format_types[i].format != '\0'; i++)
 		if (format[*index] == format_types[i].format)
-			return (format_types[i].fn(arg, buffer, flag, width, size));
+			return (format_types[i].f(arg, buffer, flag, width, size));
 	if (format_types[i].format == '\0')
 	{
 		if (format[*index] == '\0')

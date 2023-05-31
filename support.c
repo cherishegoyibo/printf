@@ -36,6 +36,34 @@ int pr_num(va_list arg)
 }
 
 /**
+ * pr_unsign_num - print unsigned
+ * @n: input
+ * Return: number printed
+ */
+int pr_unsign_num(unsigned int n)
+{
+	int i, len;
+	unsigned int num;
+
+	i = 1;
+	len = 0;
+
+	num = n;
+
+	for (; num / i > 9; )
+		i *= 10;
+
+	for (; i != 0; )
+	{
+		len += _putchar('0' + num / i);
+		num %= i;
+		i /= 10;
+	}
+
+	return (len);
+}
+
+/**
 * rev_str - reverse string
 * @s: input
 *
@@ -115,7 +143,7 @@ void pr_base(char *c)
 {
 	int i;
 
-	for (i = 0; c[i] != '\0';; i++)
-		_putchar(str[i]);
+	for (i = 0; c[i] != '\0'; i++)
+		_putchar(c[i]);
 
 }

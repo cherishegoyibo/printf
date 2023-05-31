@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+#define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 #define F_PLUS 1
 #define F_SPACE 2
@@ -17,9 +18,12 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int pull_print(const char *format, int index, va_list arg, char buffer[],
+		int flag, int width, int size, int precision);
+
 int pr_char(va_list arg);
 int pr_string(va_list arg);
-int pr_cent(void);
+int pr_cent(va_list arg);
 int pr_int(va_list arg);
 int pr_uint(va_list arg);
 int pr_bin(va_list arg);
@@ -34,9 +38,7 @@ int pr_size(const char *format, int *index);
 int pr_width(const char *format, int *index, va_list arg);
 int pr_precision(const char *format, va_list arg, int *index);
 int pr_String(va_list arg, char buffer[]);
-int pr_pointer(va_list arg, char buffer[], int flags);
-int pull_print(const char *format, int index, va_list arg, char buffer[],
-		int flag, int width, int size, int precision);
+int pr_pointer(va_list arg, char buffer[], int flag);
 
 
 int pr_num(va_list arg);
@@ -57,10 +59,11 @@ int wr_pointer(char buffer[], int ind, int len, int width,
  * @type: format
  * @f: function pointer
  */
-typedef struct format
+struct format
 {
 	char type;
-	int (*f)(va_list);
-} format_t;
+	int (*f)(va_list, char[], int, int, int, int);
+};
+typedef struct format format_t;
 
 #endif
