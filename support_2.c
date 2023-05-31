@@ -1,11 +1,7 @@
 #include "main.h"
 
 /**
-<<<<<<< HEAD
-* is_digit – checks digit to print
-=======
 *is_digit - Function that helps find a digit
->>>>>>> 5d068c27180f33a17424d2f75c6dd10c2c596f70
 * @c: input
 *
 * Return: 1 , else 0

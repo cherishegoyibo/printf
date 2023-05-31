@@ -77,7 +77,6 @@ int pr_octal(va_list arg)
 	_str = rev_str(str);
 	if (_str == NULL)
 		return (-1);
-
 	pr_base(_str);
 	free(str);
 	free(_str);
@@ -88,6 +87,7 @@ int pr_octal(va_list arg)
 /**
  * pr_hex - print in base 16 lowercase
  * @arg: argument
+ *
  * Return: number printed
  */
 int pr_hex(va_list arg)
@@ -102,7 +102,7 @@ int pr_hex(va_list arg)
 		return (_putchar('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 16);
+len = base_len(num, 16);
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (-1);
@@ -131,6 +131,7 @@ int pr_hex(va_list arg)
 /**
  * pr_HEX - print in base 16 uppercase
  * @arg: argument
+ *
  * Return: number printed
  */
 int pr_HEX(va_list arg)
@@ -146,7 +147,7 @@ int pr_HEX(va_list arg)
 	if (num < 1)
 		return (-1);
 
-	len = base_len(num, 16);
+len = base_len(num, 16);
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (-1);
@@ -160,7 +161,7 @@ int pr_HEX(va_list arg)
 		}
 		else
 			str[len] = i + 48;
-		num = num / 16;
+		num /= 16;
 	}
 	str[len] = '\0';
 	_str = rev_str(str);
@@ -173,9 +174,10 @@ int pr_HEX(va_list arg)
 }
 
 /**
- * hex_comp - Finds hex function.
+ * hex_comp – finds hex function
  * @i: input
  * @c: character input
+ *
  * Return: 0
  */
 int hex_comp(int i, char c)
@@ -189,5 +191,4 @@ int hex_comp(int i, char c)
 	else
 		return (HEX[i]);
 	return (0);
-
 }
