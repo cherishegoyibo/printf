@@ -10,8 +10,8 @@ void pr_buffer(char buffer[], int *b_index);
  */
 int _printf(const char *format, ...)
 {
-	int i, print = 0, pr_char = 0;
-	int flag, width, precision, size, b_index = 0, index = 0;
+ 	int i, print = 0, pr_char = 0;
+ 	int flag, width, precision, size, b_index = 0, index = 0;
 	va_list arg;
 	char buffer[BUFF_SIZE];
 
@@ -34,14 +34,15 @@ int _printf(const char *format, ...)
 			pr_buffer(buffer, &b_index);
 			flag = pr_flag(format, &index);
 			width = pr_width(format, &index, arg);
-			precision = pr_precision;
-			size = pr_size;
+			precision = pr_precision(format, arg, &index);
+			size = pr_size(format, &index);
 			++i;
-			print = syn_print(format, buffer, arg, &i, flag, \width, precision, size);
+			print = pull_print(format, index, arg, buffer,
+  					flag, width, size, precision);
 			if (print == -1)
 				return (-1);
 			pr_char += print;
-		}
+ 		}
 	}
 
 	pr_buffer(buffer, &b_index);
@@ -61,6 +62,5 @@ void pr_buffer(char buffer[], int *b_index)
 	*b_index = 0;
 
 	if (*b_index > 0)
-		write(1, &buffer[0], *b_index);
+	write(1, &buffer[0], *b_index);
 }
-
