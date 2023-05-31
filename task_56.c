@@ -28,13 +28,13 @@ int pr_String(va_list arg, char buffer[])
 }
 
 /**
-* pr_pointer - Prints pointer
-* @arg: arguments
-* @buffer: array
-* @flag: handle flags
-*
-* Return: Number of chars printed.
-*/
+ * pr_pointer - Prints pointer
+ * @arg: arguments
+ * @buffer: array
+ * @flag: handle flags
+ *
+ * Return: Number of chars printed.
+ */
 int pr_pointer(va_list arg, char buffer[], int flag)
 {
 	char extra = 0, padd = ' ';
@@ -42,6 +42,7 @@ int pr_pointer(va_list arg, char buffer[], int flag)
 	unsigned long p;
 	char aleph_tab[] = "0123456789abcdef";
 	void *address = va_arg(arg, void *);
+	int width = 0;
 
 	if (address == NULL)
 		return (write(1, "(nil)", 5));
@@ -60,7 +61,7 @@ int pr_pointer(va_list arg, char buffer[], int flag)
 	if (flag & F_PLUS)
 		extra = '+', len++;
 	else if (flag & F_SPACE)
-	extra =  ' ', len++;
+		extra = ' ', len++;
 
 	ind++;
 
