@@ -17,9 +17,6 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-handlei syn print
-va list, confirm
-
 int pr_char(va_list arg);
 int pr_string(va_list arg);
 int pr_cent(void);
