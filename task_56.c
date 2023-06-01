@@ -38,7 +38,7 @@ int pr_String(va_list arg, char buffer[])
 int pr_pointer(va_list arg, char buffer[], int flag)
 {
 	char extra = 0, padd = ' ';
-	int ind = BUFF_SIZE - 2, len = 2, padd_start = 1;
+	int index = BUFF_SIZE - 2, len = 2, padd_start = 1;
 	unsigned long p;
 	char aleph_tab[] = "0123456789abcdef";
 	void *address = va_arg(arg, void *);
@@ -51,7 +51,7 @@ int pr_pointer(va_list arg, char buffer[], int flag)
 	p = (unsigned long)address;
 	while (p > 0)
 	{
-		buffer[ind--] = aleph_tab[p % 16];
+		buffer[index--] = aleph_tab[p % 16];
 		p /= 16;
 		len++;
 	}
@@ -63,7 +63,7 @@ int pr_pointer(va_list arg, char buffer[], int flag)
 	else if (flag & F_SPACE)
 		extra = ' ', len++;
 
-	ind++;
+	index++;
 
-	return (wr_pointer(buffer, ind, len, width, flag, padd, extra, padd_start));
+	return (wr_pointer(buffer, index, len, width, flag, padd, extra, padd_start));
 }

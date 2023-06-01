@@ -3,7 +3,7 @@
 /**
  * wr_pointer - prints memory address
  * @buffer: array
- * @ind: index
+ * @index: index
  * @len: length specifier
  * @width: width specifier
  * @flag: flags
@@ -13,7 +13,7 @@
  *
  * Return: number printed
  */
-int wr_pointer(char buffer[], int ind, int len, int width,
+int wr_pointer(char buffer[], int index, int len, int width,
 		int flag, char padd, char extra, int padd_start)
 {
 	int i;
@@ -25,19 +25,19 @@ int wr_pointer(char buffer[], int ind, int len, int width,
 		buffer[i] = '\0';
 		if (flag & F_MINUS && padd == ' ')
 		{
-			buffer[--ind] = 'x';
-			buffer[--ind] = '0';
+			buffer[--index] = 'x';
+			buffer[--index] = '0';
 			if (extra)
-				buffer[--ind] = extra;
-			return (write(1, &buffer[ind], len) + write(1, &buffer[3], i - 3));
+				buffer[--index] = extra;
+			return (write(1, &buffer[index], len) + write(1, &buffer[3], i - 3));
 		}
 		else if (!(flag & F_MINUS) && padd == ' ')
 		{
-			buffer[--ind] = 'x';
-			buffer[--ind] = '0';
+			buffer[--index] = 'x';
+			buffer[--index] = '0';
 			if (extra)
-				buffer[--ind] = extra;
-			return (write(1, &buffer[ind], len) + write(1, &buffer[3], i - 3));
+				buffer[--index] = extra;
+			return (write(1, &buffer[index], len) + write(1, &buffer[3], i - 3));
 		}
 		else if (!(flag & F_MINUS) && padd == '0')
 		{
@@ -46,13 +46,13 @@ int wr_pointer(char buffer[], int ind, int len, int width,
 			buffer[1] = '0';
 			buffer[2] = 'x';
 			return (write(1, &buffer[padd_start], i - padd_start) +
-					write(1, &buffer[ind], len - (1 - padd_start) - 2));
+					write(1, &buffer[index], len - (1 - padd_start) - 2));
 		}
-		buffer[--ind] = 'x';
-		buffer[--ind] = '0';
+		buffer[--index] = 'x';
+		buffer[--index] = '0';
 		if (extra)
-			buffer[--ind] = extra;
-		return (write(1, &buffer[ind], BUFF_SIZE - ind - 1));
+			buffer[--index] = extra;
+		return (write(1, &buffer[index], BUFF_SIZE - index - 1));
 	}
 	return (0);
 }

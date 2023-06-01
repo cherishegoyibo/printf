@@ -35,14 +35,13 @@ int pr_string(va_list arg)
 
 /**
  * pr_cent - print percent symbol %
- *
+ *@arg: argument
  * Return: number of characters
  */
-int pr_cent(void)
+int pr_cent(va_list arg)
 {
-	_putchar('%');
-
-	return (1);
+	UNUSED(arg);
+	return (write(1, "%%", 1));
 }
 
 /**

@@ -26,12 +26,12 @@ int pr_rev(va_list arg)
 }
 
 /**
- * rot13 - prints rot13'ed strings
+ * pr_rot13 - prints rot13'ed strings
  * @arg: argument
  *
  * Return: rot13 string
  */
-int rot13(va_list arg)
+int pr_rot13(va_list arg)
 {
 	int i, j;
 	char *str;

@@ -18,8 +18,8 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int pull_print(const char *format, int index, va_list arg, char buffer[],
-		int flag, int width, int size, int precision);
+int pull_print(const char *format, int *index, va_list arg, char buffer[],
+		int flag, int width, int precision, int size);
 
 int pr_char(va_list arg);
 int pr_string(va_list arg);
@@ -30,17 +30,16 @@ int pr_bin(va_list arg);
 int pr_octal(va_list arg);
 int pr_hex(va_list arg);
 int pr_HEX(va_list arg);
-int hex_comp(int i, char c);
 int pr_rev(va_list arg);
-int rot13(va_list arg);
+int pr_rot13(va_list arg);
+int pr_String(va_list arg, char buffer[]);
+int pr_pointer(va_list arg, char buffer[], int flag);
+
 int pr_flag(const char *format, int *index);
 int pr_size(const char *format, int *index);
 int pr_width(const char *format, int *index, va_list arg);
 int pr_precision(const char *format, va_list arg, int *index);
-int pr_String(va_list arg, char buffer[]);
-int pr_pointer(va_list arg, char buffer[], int flag);
-
-
+int hex_comp(int i, char c);
 int pr_num(va_list arg);
 int pr_unsign_num(unsigned int n);
 char *rev_str(char *s);
@@ -51,18 +50,18 @@ void pr_buffer(char buffer[], int *b_index);
 int is_digit(char c);
 int is_print(char c);
 int append_hex(char code, char buffer[], int index);
-int wr_pointer(char buffer[], int ind, int len, int width,
+int wr_pointer(char buffer[], int index, int len, int width,
 		int flag, char padd, char extra, int padd_start);
 
 /**
  * struct format - structure to handle different format
- * @type: format
+ * @format: format
  * @f: function pointer
  */
 struct format
 {
-	char type;
-	int (*f)(va_list, char[], int, int, int, int);
+	char format;
+	int (*f)(va_list);
 };
 typedef struct format format_t;
 
